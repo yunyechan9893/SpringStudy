@@ -1,7 +1,6 @@
 package com.example.mvc.controller.get
 
 import model.http.UserRequest
-import org.apache.catalina.User
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -41,7 +40,7 @@ class GetApiContoller {
 
     @GetMapping("/get-mapping/path-variable2/{name}/{age}")
     fun pathVariable2(@PathVariable(value="name") _name:String, @PathVariable(name="age") age:Int): String{
-        var name = "yyc"
+        val name = "yyc"
         println("${name}, ${age}")
         return _name + " " + age
     }
