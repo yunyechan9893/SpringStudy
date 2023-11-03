@@ -54,7 +54,7 @@ class GetApiContoller {
     }
 
     @GetMapping("/get-mapping/query-param/object")
-    fun queryParamObject(userRequest: UserRequest): UserRequest{
+    fun queryParamObject(userRequest: UserRequest): UserRequest {
         return userRequest
     }
 
