@@ -1,6 +1,5 @@
 package com.example.mvc.controller.post
 
-import model.http.UserRequest
 import model.http.UserRequestPost
 import model.http.UserRequestPost2
 import org.springframework.web.bind.annotation.PostMapping
