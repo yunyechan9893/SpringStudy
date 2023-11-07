@@ -8,6 +8,8 @@ import model.http.UserRequest
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.validation.BindingResult
+import org.springframework.validation.FieldError
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -64,8 +66,20 @@ class ResponseApiController {
     }
 
     @PostMapping("")
-    fun postMapping(@Valid @RequestBody userRequest: UserRequest): ResponseEntity<UserRequest> {
-        return ResponseEntity.status(200).body(userRequest)
+    fun postMapping(@Valid @RequestBody userRequest: UserRequest,bindingResult: BindingResult): ResponseEntity<String> {
+        if (bindingResult.hasErrors()){
+            val msg = StringBuilder()
+            bindingResult.allErrors.forEach {
+                var field = it as FieldError
+                var message = it.defaultMessage
+                msg.append(field.field+" : "+message)
+            }
+            return ResponseEntity.badRequest().body(msg.toString())
+        }
+        else{
+            println(bindingResult.hasErrors())
+            return ResponseEntity.ok("")
+        }
     }
 
     @PutMapping("")
