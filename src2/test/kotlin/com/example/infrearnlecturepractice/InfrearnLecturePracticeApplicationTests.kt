@@ -1,14 +1,13 @@
-package com.example.mvc
+package com.example.infrearnlecturepractice
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class MvcApplicationTests2 {
+class InfrearnLecturePracticeApplicationTests {
 
     @Test
     fun contextLoads() {
-
     }
 
 }
